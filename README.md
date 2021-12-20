@@ -9,9 +9,7 @@ Add VehicleMaxSpeed.pwn to your filterscripts folder and VehicleMaxSpeed to your
 Make sure you have sscanf plugin, zcmd (or any command library that supports CMD:), y_iterate and y_vehicledata (Huge thanks to YSI, you can find what you need in here https://github.com/pawn-lang/YSI-Includes#libraries). 
 <p align="left">
 
-
-
-<h3 align="left">Installation:</h3>
+<h3 align="left">Usage:</h3>
 Just use SetVehicleMaxSpeed(vehicleid,percentage) to set the new max speed. The percentage is added to current max speed, so using 0 will remove the upgrade.
 <p align="left">
 
