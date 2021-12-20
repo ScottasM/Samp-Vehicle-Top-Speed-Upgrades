@@ -1,4 +1,4 @@
-// By ScottasM - 2021-12-20. link
+// By ScottasM - 2021-12-20. https://github.com/ScottasM/Samp-Vehicle-Top-Speed-Upgrades
 
 #include <a_samp>
 #include <sscanf2>
@@ -15,9 +15,20 @@ new VMUpgrades[MAX_VEHICLES];
 
 public OnFilterScriptInit(){
     SetTimer("SpeedTimer",300,true);
-    print("Vehicle max speed upgrades by ScottasM link");
+    print("Vehicle max speed upgrades by ScottasM https://github.com/ScottasM/Samp-Vehicle-Top-Speed-Upgrades");
     return 1;
 }
+
+/*CMD:vehicle(playerid,params[]){ // a small test function to create a vehicle
+    
+    new Float:Pos[3];
+    GetPlayerPos(playerid,Pos[0],Pos[1],Pos[2]);
+    new model;
+    if(sscanf(params,"i",model))
+        return 1;
+    CreateVehicle(model, Pos[0],Pos[1],Pos[2], 0.0, random(250), random(250), 0);
+    return 1;
+}*/
 
 CMD:vehiclemaxspeed(playerid,params[]){
     
@@ -68,6 +79,10 @@ public SpeedTimer(){
             speed = floatmul( floatsqroot( floatadd( floatadd( floatpower( vX, 2 ), floatpower( vY, 2 ) ),  floatpower( vZ, 2 ) ) ), 180.0 ); // get the current vehicle speed
 
             newMaxSpeed = maxSpeed+maxSpeed/100*VMUpgrades[vehicleid]; // calculate the new max speed based on percentage added
+
+            /*new msg[50]; // a few lines for testing - prints maximum speed, the new maximum speed and the current speed.
+            format(msg,sizeof(msg),"%.1f : %.1f : %.1f",maxSpeed,newMaxSpeed,speed);
+            SendClientMessage(i,-1,msg);*/
 
             if(speed > maxSpeed-1 && speed < newMaxSpeed+1) // if the vehicle speed is more than the maxspeed (-1, for less precision) and less than the new max speed
                 SetVehicleVelocity(vehicleid, vX*1.03, vY*1.03, vZ*1.03); // add velocity to the vehicle overriding the max speed - it will keep accelerating even tho it reached its max speed.
