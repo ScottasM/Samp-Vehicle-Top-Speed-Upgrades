@@ -59,7 +59,7 @@ public SpeedTimer(){
             continue;
 
         maxSpeed = Model_TopSpeed(GetVehicleModel(vehicleid)); // get the max speed of vehicle 
-        if(maxSpeed == 0) // if the maxspeed is 0 (not set) the system wont work, so we continue the iteration
+        if(maxSpeed == 0) // if the maxspeed is 0 (not defined) the system wont work, so we continue the iteration
             continue;
 
         GetPlayerKeys(i, keys, _:vX, _:vX);
